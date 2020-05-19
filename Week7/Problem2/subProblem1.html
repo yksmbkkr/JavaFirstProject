@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../week6/custom.css" />
+    <script
+      src="https://kit.fontawesome.com/bd2da8549a.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Assignment 7 | PS</title>
+  </head>
+  <body>
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">By</h4>
+              <p class="text-white">Yash Kulshreshtha</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="https://linkedin.com/in/yksmbllr" class="text-white"
+                    >LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a href="mailto:yash@yash99.tech" class="text-white">Email</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <i class="fas fa-chalkboard-teacher fa-2x"></i>&nbsp;
+            <strong>Practice Page</strong>
+          </a>
+          <button
+            class="navbar-toggler collapsed"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarHeader"
+            aria-controls="navbarHeader"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <!-- <span class="navbar-toggler-icon"></span> -->
+            <!-- <span class="sr-only">Toggle navigation</span> -->
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+      <section
+        class="text-center"
+        id="head-container"
+        style="min-height: 50vh !important;"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-12" style="margin-top: 5em;">
+              <h1 class="text-white">Assignement 7</h1>
+              <p class="lead text-white">JS Practice</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-dark">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-white pt-4">
+              <form id="number-form">
+                <div class="form-group" id="input1">
+                  <label for="n1">Number 1</label>
+                  <input
+                    type="number"
+                    name="number1"
+                    id="n1"
+                    class="form-control"
+                    pattern=""
+                  />
+                </div>
+                <div class="form-group" id="input2" style="display: none;">
+                  <label for="n2">Number 2</label>
+                  <input
+                    type="number"
+                    name="number2"
+                    id="n2"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-round"
+                    id="next-button"
+                    onclick="nextClick(this, 'input2', 'input1')"
+                  >
+                    Next
+                  </button>
+                </div>
+                <div class="form-group" id="operation" style="display: none;">
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      name="operation"
+                      id="add"
+                      class="form-check-input"
+                      value="add"
+                    />
+                    <label for="add" class="form-check-label">Add</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      name="operation"
+                      id="subtract"
+                      class="form-check-input"
+                      value="subtract"
+                    />
+                    <label for="subtract" class="form-check-label"
+                      >Subtract</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      name="operation"
+                      id="multiply"
+                      class="form-check-input"
+                      value="multiply"
+                    />
+                    <label for="multiply" class="form-check-label"
+                      >Multiply</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      name="operation"
+                      id="divide"
+                      class="form-check-input"
+                      value="divide"
+                    />
+                    <label for="divide" class="form-check-label">Divide</label>
+                  </div>
+                </div>
+                <div class="form-group" id="result" style="display: none;">
+                  <label for="res">Result</label>
+                  <input
+                    type="text"
+                    name="result"
+                    id="res"
+                    class="form-control"
+                    disabled
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+          <div style="width: 100%; min-height: 30vh;"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Built with Bootstrap 4.5</p>
+      </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../../week6/three.r95.min.js"></script>
+    <script src="../../week6/vanta.net.min.js"></script>
+
+    <script>
+      VANTA.NET({
+        el: "#head-container",
+        mouseControls: true,
+        touchControls: true,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $(".form-check-input").click(function () {
+          console.log(this.value);
+        });
+        $("#n1, #n2").on("input", function () {
+          $("#operation").hide();
+
+          console.log(this.value);
+          let numRegex = new RegExp("^[0-9]+$");
+          if (!numRegex.test(this.value)) {
+            this.value = "";
+            alert("This should be an integer !");
+          }
+        });
+      });
+      function nextClick(btn, nextID, currentID) {
+        $('input[name="operation"]').prop("checked", false);
+
+        $("#input1, #input2").each(function () {
+          if ($(this).is(":visible")) {
+            let numRegex = new RegExp("^[0-9]+$");
+            if (!numRegex.test($(this).find(":input").val())) {
+              this.value = "";
+              alert(
+                $(this).find(":input").attr("name") + " should be an integer !"
+              );
+              return false;
+            }
+          } else {
+            console.log("in else");
+            $(this).show();
+            return;
+          }
+          console.log("loop done");
+          $("#operation").show();
+        });
+      }
+    </script>
+  </body>
+</html>
