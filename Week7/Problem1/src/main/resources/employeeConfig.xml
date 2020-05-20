@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="emp1" class="tech.yash.assignment.Employee">
+        <constructor-arg index="0" value="1001"></constructor-arg>
+        <constructor-arg index="1" value="John"></constructor-arg>
+        <constructor-arg index="2" value="Delhi"></constructor-arg>
+    </bean>
+
+    <bean id="emp2" class="tech.yash.assignment.Employee">
+        <constructor-arg index="0" value="1002"></constructor-arg>
+        <constructor-arg index="1" value="Joe"></constructor-arg>
+        <constructor-arg index="2" value="Delhi"></constructor-arg>
+    </bean>
+
+    <bean id="emp3" class="tech.yash.assignment.Employee">
+        <constructor-arg index="0" value="1003"></constructor-arg>
+        <constructor-arg index="1" value="Emily"></constructor-arg>
+        <constructor-arg index="2" value="Mumbai"></constructor-arg>
+    </bean>
+
+    <bean id="emp4" class="tech.yash.assignment.Employee">
+        <constructor-arg index="0" value="1004"></constructor-arg>
+        <constructor-arg index="1" value="Riya"></constructor-arg>
+        <constructor-arg index="2" value="Ambala"></constructor-arg>
+    </bean>
+
+    <bean id="emp5" class="tech.yash.assignment.Employee">
+        <constructor-arg index="0" value="1005"></constructor-arg>
+        <constructor-arg index="1" value="Rahul"></constructor-arg>
+        <constructor-arg index="2" value="Mumbai"></constructor-arg>
+    </bean>
+
+    <bean id="emp6" class="tech.yash.assignment.Employee">
+        <constructor-arg index="0" value="1006"></constructor-arg>
+        <constructor-arg index="1" value="Deep"></constructor-arg>
+        <constructor-arg index="2" value="Ambala"></constructor-arg>
+    </bean>
+
+    <bean id="emp7" class="tech.yash.assignment.Employee">
+        <constructor-arg index="0" value="1007"></constructor-arg>
+        <constructor-arg index="1" value="Ray"></constructor-arg>
+        <constructor-arg index="2" value="Mumbai"></constructor-arg>
+    </bean>
+
+    <util:map id="employeeMap" value-type="tech.yash.assignment.Employee">
+        <entry key="emp101" value-ref="emp1"></entry>
+        <entry key="emp102" value-ref="emp2"></entry>
+        <entry key="emp103" value-ref="emp3"></entry>
+        <entry key="emp104" value-ref="emp4"></entry>
+        <entry key="emp105" value-ref="emp5"></entry>
+        <entry key="emp106" value-ref="emp6"></entry>
+        <entry key="emp107" value-ref="emp7"></entry>
+    </util:map>
+
+
+</beans>
