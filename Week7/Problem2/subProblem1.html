@@ -101,7 +101,7 @@
                     name="number1"
                     id="n1"
                     class="form-control"
-                    pattern=""
+                    onkeypress="return isNumber(event)"
                   />
                 </div>
                 <div class="form-group" id="input2" style="display: none;">
@@ -111,6 +111,7 @@
                     name="number2"
                     id="n2"
                     class="form-control"
+                    onkeypress="return isNumber(event)"
                   />
                 </div>
                 <div class="form-group">
@@ -176,7 +177,7 @@
                     name="result"
                     id="res"
                     class="form-control"
-                    disabled
+                    readonly
                   />
                 </div>
               </form>
@@ -230,39 +231,63 @@
       $(document).ready(function () {
         $(".form-check-input").click(function () {
           console.log(this.value);
+          switch (this.value) {
+            case "add":
+              document.getElementById("res").value =
+                parseInt($("#n1").val()) + parseInt($("#n2").val());
+              document.getElementById("result").style.display = "block";
+              break;
+            case "subtract":
+              document.getElementById("res").value =
+                parseInt($("#n1").val()) - parseInt($("#n2").val());
+              document.getElementById("result").style.display = "block";
+              break;
+            case "multiply":
+              document.getElementById("res").value =
+                parseInt($("#n1").val()) * parseInt($("#n2").val());
+              document.getElementById("result").style.display = "block";
+              break;
+            case "divide":
+              document.getElementById("res").value =
+                parseInt($("#n1").val()) / parseInt($("#n2").val());
+              document.getElementById("result").style.display = "block";
+              break;
+          }
         });
         $("#n1, #n2").on("input", function () {
-          $("#operation").hide();
-
-          console.log(this.value);
-          let numRegex = new RegExp("^[0-9]+$");
-          if (!numRegex.test(this.value)) {
-            this.value = "";
-            alert("This should be an integer !");
-          }
+          numInit(this.parentNode.id);
         });
       });
-      function nextClick(btn, nextID, currentID) {
+      function isNumber(evt) {
+        evt = evt ? evt : window.event;
+        var charCode = evt.which ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+          return false;
+        }
+        return true;
+      }
+      function numInit(flag) {
+        if (flag == "input1") {
+          document.getElementById("input2").style.display = "none";
+          document.getElementById("n2").value = "";
+        }
+        document.getElementById("operation").style.display = "none";
         $('input[name="operation"]').prop("checked", false);
-
-        $("#input1, #input2").each(function () {
-          if ($(this).is(":visible")) {
-            let numRegex = new RegExp("^[0-9]+$");
-            if (!numRegex.test($(this).find(":input").val())) {
-              this.value = "";
-              alert(
-                $(this).find(":input").attr("name") + " should be an integer !"
-              );
-              return false;
-            }
-          } else {
-            console.log("in else");
-            $(this).show();
+        document.getElementById("result").style.display = "none";
+        document.getElementById("res").value = "";
+      }
+      function nextClick(btn, nextID, currentID) {
+        if (!$("#input2").is(":visible")) {
+          if ($("#n1").val() == "") {
             return;
           }
-          console.log("loop done");
+          $("#input2").show();
+        } else {
+          if ($("#n2").val() == "") {
+            return;
+          }
           $("#operation").show();
-        });
+        }
       }
     </script>
   </body>
