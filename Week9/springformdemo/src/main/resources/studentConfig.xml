@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="student1" class="tech.yash.springformdemo.pojo.Student">
+        <constructor-arg index="0" value="1001"></constructor-arg>
+        <constructor-arg index="1" value="John"></constructor-arg>
+        <constructor-arg index="2" value="Delhi"></constructor-arg>
+    </bean>
+
+    <bean id="student2" class="tech.yash.springformdemo.pojo.Student">
+        <constructor-arg index="0" value="1002"></constructor-arg>
+        <constructor-arg index="1" value="Joe"></constructor-arg>
+        <constructor-arg index="2" value="Delhi"></constructor-arg>
+    </bean>
+
+    <bean id="student3" class="tech.yash.springformdemo.pojo.Student">
+        <constructor-arg index="0" value="1003"></constructor-arg>
+        <constructor-arg index="1" value="Emily"></constructor-arg>
+        <constructor-arg index="2" value="Mumbai"></constructor-arg>
+    </bean>
+
+    <bean id="student4" class="tech.yash.springformdemo.pojo.Student">
+        <constructor-arg index="0" value="1004"></constructor-arg>
+        <constructor-arg index="1" value="Riya"></constructor-arg>
+        <constructor-arg index="2" value="Ambala"></constructor-arg>
+    </bean>
+
+    <bean id="student5" class="tech.yash.springformdemo.pojo.Student">
+        <constructor-arg index="0" value="1005"></constructor-arg>
+        <constructor-arg index="1" value="Rahul"></constructor-arg>
+        <constructor-arg index="2" value="Mumbai"></constructor-arg>
+    </bean>
+
+    <bean id="student6" class="tech.yash.springformdemo.pojo.Student">
+        <constructor-arg index="0" value="1006"></constructor-arg>
+        <constructor-arg index="1" value="Deep"></constructor-arg>
+        <constructor-arg index="2" value="Ambala"></constructor-arg>
+    </bean>
+
+    <bean id="student7" class="tech.yash.springformdemo.pojo.Student">
+        <constructor-arg index="0" value="1007"></constructor-arg>
+        <constructor-arg index="1" value="Ray"></constructor-arg>
+        <constructor-arg index="2" value="Mumbai"></constructor-arg>
+    </bean>
+
+    <util:map id="studentMap" value-type="tech.yash.springformdemo.pojo.Student">
+        <entry key="student101" value-ref="student1"></entry>
+        <entry key="student102" value-ref="student2"></entry>
+        <entry key="student103" value-ref="student3"></entry>
+        <entry key="student104" value-ref="student4"></entry>
+        <entry key="student105" value-ref="student5"></entry>
+        <entry key="student106" value-ref="student6"></entry>
+        <entry key="student107" value-ref="student7"></entry>
+    </util:map>
+    
+</beans>
