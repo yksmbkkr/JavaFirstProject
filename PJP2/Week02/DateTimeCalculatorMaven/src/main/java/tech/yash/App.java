@@ -21,23 +21,33 @@ public class App
 //        System.out.println(Arrays.toString(d1));
 //        System.out.println(Arrays.toString(d2));
 
-        DateCalculator dateCalculator = new DateCalculator(d1, d2);
-        System.out.println(DateCalculator.dateToString(dateCalculator.getDate1()));
-        System.out.println(DateCalculator.dateToString(dateCalculator.getDate2()));
-        System.out.println(DateCalculator.dateToString(dateCalculator.add()));
-        System.out.println(dateCalculator.subtract().toString());
+//        DateCalculator dateCalculator = new DateCalculator(d1, d2);
+//        System.out.println(DateCalculator.dateToString(dateCalculator.getDate1()));
+//        System.out.println(DateCalculator.dateToString(dateCalculator.getDate2()));
+//        System.out.println(DateCalculator.dateToString(dateCalculator.add()));
+//        System.out.println(dateCalculator.subtract().toString());
+//
+//        System.out.println(DateCalculator.getDayofWeek(dateCalculator.getDate1()));
+//        System.out.println(DateCalculator.getWeekofYear(dateCalculator.getDate1()));
 
-        System.out.println(DateCalculator.getDayofWeek(dateCalculator.getDate1()));
-        System.out.println(DateCalculator.getWeekofYear(dateCalculator.getDate1()));
+//        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("Today")));
+//        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("Day before Yesterday")));
+//        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("30 Days from now")));
+//        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("2 Weeks from now")));
+//        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("2 Years from now")));
+//        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("10 Days earlier")));
+//        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("50 years earlier")));
 
-        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("Today")));
-        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("Day before Yesterday")));
-        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("30 Days from now")));
-        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("2 Weeks from now")));
-        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("2 Years from now")));
-        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("10 Days earlier")));
-        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("50 years earlier")));
+        CalculatorIO calculatorIO = new CalculatorIO();
+        int inputFlag = 1;
+        while (inputFlag>0 && inputFlag <9){
+            calculatorIO.inputOptions();
+            System.out.println("\nEnter your choice (Enter 0 to exit) > ");
+            inputFlag = Integer.parseInt(in.nextLine());
+            calculatorIO.performOperation(inputFlag);
+        }
 
+        System.out.println("Exiting...");
 
     }
 }

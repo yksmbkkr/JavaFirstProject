@@ -15,55 +15,23 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class DateCalculator {
-    private Calendar date1;
-    private Calendar date2;
-    private LocalDate localDate1, localDate2;
 
-    public DateCalculator(int[] date1, int[] date2) {
-        if (date1.length != 3 || date2.length != 3){
-            throw new InvalidParameterException("Date1 or Date2 should have exactly 3 values.");
-        }
-        this.date1 = Calendar.getInstance();
-        this.date1.set(date1[2], date1[1]-1, date1[0]);
-        this.date2 = Calendar.getInstance();
-        this.date2.set(date2[2], date2[1]-1, date2[0]);
-
-        this.localDate1 = LocalDateTime.ofInstant(this.date1.toInstant(), this.date1.getTimeZone().toZoneId()).toLocalDate();
-        this.localDate2 = LocalDateTime.ofInstant(this.date2.toInstant(), this.date2.getTimeZone().toZoneId()).toLocalDate();
-    }
-
-    public Calendar getDate1() {
-        return date1;
-    }
-
-    public void setDate1(Calendar date1) {
-        this.date1 = date1;
-    }
-
-    public Calendar getDate2() {
-        return date2;
-    }
-
-    public void setDate2(Calendar date2) {
-        this.date2 = date2;
-    }
-
-    public Calendar add(){
-        Calendar ret_cal = (Calendar) this.date1.clone();
-        ret_cal.add(Calendar.YEAR, this.date2.get(Calendar.YEAR));
-        ret_cal.add(Calendar.MONTH, this.date2.get(Calendar.MONTH));
-        ret_cal.add(Calendar.DATE, this.date2.get(Calendar.DATE));
+    public static Calendar add(Calendar date1, Calendar date2){
+        Calendar ret_cal = (Calendar) date1.clone();
+        ret_cal.add(Calendar.YEAR, date2.get(Calendar.YEAR));
+        ret_cal.add(Calendar.MONTH, date2.get(Calendar.MONTH));
+        ret_cal.add(Calendar.DATE, date2.get(Calendar.DATE));
         return ret_cal;
     }
 
-    public HashMap<String, Long> subtract(){
+    public static HashMap<String, Long> subtract(Calendar date1, Calendar date2){
         LocalDate from, to;
-        if (this.date1.before(this.date2)){
-            from = this.localDate1;
-            to = this.localDate2;
+        if (date1.before(date2)){
+            from = LocalDateTime.ofInstant(date1.toInstant(), date1.getTimeZone().toZoneId()).toLocalDate();
+            to = LocalDateTime.ofInstant(date2.toInstant(), date2.getTimeZone().toZoneId()).toLocalDate();
         } else {
-            from = this.localDate2;
-            to = this.localDate1;
+            from = LocalDateTime.ofInstant(date2.toInstant(), date2.getTimeZone().toZoneId()).toLocalDate();
+            to = LocalDateTime.ofInstant(date1.toInstant(), date1.getTimeZone().toZoneId()).toLocalDate();
         }
         HashMap<String, Long> diff = new HashMap<String, Long>();
         diff.put("DAYS", ChronoUnit.DAYS.between(from, to));
@@ -102,8 +70,8 @@ public class DateCalculator {
         return date;
     }
 
-    public static int getWeekofYear(Calendar date){
-        return date.get(Calendar.WEEK_OF_YEAR);
+    public static String getWeekofYear(Calendar date){
+        return Integer.toString(date.get(Calendar.WEEK_OF_YEAR));
     }
 
     public static String getDayofWeek(Calendar date){
@@ -111,7 +79,7 @@ public class DateCalculator {
     }
 
     public static Calendar smartConverter(String string){
-        System.out.println("\n########"+string+"#######\n");
+//        System.out.println("\n########"+string+"#######\n");
         string = string.toLowerCase();
         final Calendar[] date = new Calendar[1];
 
@@ -169,6 +137,18 @@ public class DateCalculator {
         smartLambdas.put("month after", (Integer n) -> {
             date[0] = Calendar.getInstance();
             date[0].add(Calendar.MONTH, 1);
+        });
+        smartLambdas.put("next month", (Integer n) -> {
+            date[0] = Calendar.getInstance();
+            date[0].add(Calendar.MONTH, 1);
+        });
+        smartLambdas.put("next week", (Integer n) -> {
+            date[0] = Calendar.getInstance();
+            date[0].add(Calendar.WEEK_OF_YEAR, 1);
+        });
+        smartLambdas.put("next year", (Integer n) -> {
+            date[0] = Calendar.getInstance();
+            date[0].add(Calendar.YEAR, 1);
         });
         smartLambdas.put("month before", (Integer n) -> {
             date[0] = Calendar.getInstance();
