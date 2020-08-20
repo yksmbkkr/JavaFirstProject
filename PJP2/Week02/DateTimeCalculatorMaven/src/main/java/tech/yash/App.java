@@ -38,9 +38,18 @@ public class App
 //        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("10 Days earlier")));
 //        System.out.println(DateCalculator.dateToString(DateCalculator.smartConverter("50 years earlier")));
 
-        CalculatorIO calculatorIO = new CalculatorIO();
+//        CalculatorIO calculatorIO = new CalculatorIO();
+//        int inputFlag = 1;
+//        while (inputFlag>0 && inputFlag <9){
+//            calculatorIO.inputOptions();
+//            System.out.println("\nEnter your choice (Enter 0 to exit) > ");
+//            inputFlag = Integer.parseInt(in.nextLine());
+//            calculatorIO.performOperation(inputFlag);
+//        }
+
+        CalculatorIO_withSessionMemory calculatorIO = new CalculatorIO_withSessionMemory();
         int inputFlag = 1;
-        while (inputFlag>0 && inputFlag <9){
+        while (inputFlag>0 && inputFlag <10){
             calculatorIO.inputOptions();
             System.out.println("\nEnter your choice (Enter 0 to exit) > ");
             inputFlag = Integer.parseInt(in.nextLine());
