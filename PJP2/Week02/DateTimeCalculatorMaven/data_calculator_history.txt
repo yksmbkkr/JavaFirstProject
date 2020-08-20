@@ -1,0 +1,9 @@
+Press 1 to add dates - |[21 11 1876, 3 9 2020]|July 24, 3897
+Press 2 to subtract dates - |[5 6 1990, 23 11 1123]|{MONTHS=10398, WEEKS=45212, DAYS=316488}
+Press 8 to get date from a natural language string - |[today]|August 20, 2020
+Press 9 to view history - |[]|DISPLAYED HISTORY
+add dates|[4 5 1234, 4 5 1990]|September 08, 3224
+subtract dates|[4 5 1990, 6 7 2020]|{MONTHS=362, WEEKS=1574, DAYS=11021}
+get date from a natural language string|[today]|August 20, 2020
+get date from a natural language string|[yesterday]|August 19, 2020
+view history|[]|DISPLAYED HISTORY

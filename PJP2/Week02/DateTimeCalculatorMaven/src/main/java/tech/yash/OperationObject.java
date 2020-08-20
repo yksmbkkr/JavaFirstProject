@@ -36,4 +36,8 @@ public class OperationObject {
                 "\nInputs: " + this.getInputs() +
                 "\nResult: " + this.getResult();
     }
+
+    public void resetInput(){
+        this.inputs = new ArrayList<>();
+    }
 }

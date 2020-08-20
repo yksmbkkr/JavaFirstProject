@@ -23,7 +23,13 @@ public class CalculatorIO_withSessionMemory extends CalculatorIO {
         if (this.smartLambdaMap.containsKey(op)){
             OperationObject operationObject = new OperationObject();
             this.sessionMemory.add(operationObject);
-            operationObject.setOperation(this.menuOptions.get(op-1));
+            String op_stmt = this.menuOptions.get(op-1);
+            op_stmt = op_stmt.replaceAll("\\d","");
+            op_stmt = op_stmt.replaceAll("Press","");
+            op_stmt = op_stmt.replaceFirst("to","");
+            op_stmt = op_stmt.replace("-","");
+            op_stmt = op_stmt.strip();
+            operationObject.setOperation(op_stmt);
             this.smartLambdaMap.get(op).accept(0);
             String output = "";
             if (result[0].getClass() == GregorianCalendar.class){

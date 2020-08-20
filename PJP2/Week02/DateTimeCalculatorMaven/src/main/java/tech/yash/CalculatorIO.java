@@ -1,5 +1,6 @@
 package tech.yash;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.function.Consumer;
 
@@ -106,7 +107,7 @@ public class CalculatorIO {
         this.getMenuOptions().forEach(System.out::println);
     }
 
-    public void performOperation(int op){
+    public void performOperation(int op) throws IOException {
         if (this.smartLambdaMap.containsKey(op)){
             this.smartLambdaMap.get(op).accept(0);
             if (result[0].getClass() == GregorianCalendar.class){
