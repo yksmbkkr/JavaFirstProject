@@ -1,7 +1,8 @@
+! **/site
+
 *.iml
 **/.idea
 **/target
-!/PJP2/Week02/DateTimeCalculatorMaven/target/site/*
 /.vscode
 **/.classpath
 **/.settings
