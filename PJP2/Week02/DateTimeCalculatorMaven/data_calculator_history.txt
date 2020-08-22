@@ -7,3 +7,13 @@ subtract dates|[4 5 1990, 6 7 2020]|{MONTHS=362, WEEKS=1574, DAYS=11021}
 get date from a natural language string|[today]|August 20, 2020
 get date from a natural language string|[yesterday]|August 19, 2020
 view history|[]|DISPLAYED HISTORY
+add dates|[15 7 1990, 15 9 3]|March 30, 1994
+subtract dates|[10 9 1990, 1 1 1990]|{MONTHS=8, WEEKS=36, DAYS=252}
+subtract dates|[5 5 2010, 5 5 2010]|{MONTHS=0, WEEKS=0, DAYS=0}
+add/subtract days from a specific date|[1 1 2020, 150]|May 30, 2020
+add/subtract weeks from a specific date|[5 5 2012, -20]|December 17, 2011
+add/subtract months from a specific date|[15 10 2019, 9]|July 15, 2020
+determine the Day of the Week for a specific date|[15 4 2018]|Sunday
+determine the Week Number for a specific date|[15 4 2018]|16
+view history|[]|DISPLAYED HISTORY
+get date from a natural language string|[3000 years earlier]|August 22, 0981
