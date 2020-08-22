@@ -10,16 +10,16 @@ node {
      myTestContainer.pull()
      myTestContainer.inside {
        sh 'cd PJP2/Week02/DateTimeCalculatorMaven'
-       sh 'mvn clean'
-       sh 'mvn test'
+       sh 'mvn -f PJP2/Week02/DateTimeCalculatorMaven clean'
+       sh 'mvn -f PJP2/Week02/DateTimeCalculatorMaven test'
      }
    }
    stage('install and report') {
      def myTestContainer = docker.image('maven:3.6.3-jdk-14')
      myTestContainer.pull()
      myTestContainer.inside {
-       sh 'mvn install'
-       sh 'mvn site'
+       sh 'mvn -f PJP2/Week02/DateTimeCalculatorMaven install'
+       sh 'mvn -f PJP2/Week02/DateTimeCalculatorMaven site'
      }
    }
 //    stage('test with a DB') {
