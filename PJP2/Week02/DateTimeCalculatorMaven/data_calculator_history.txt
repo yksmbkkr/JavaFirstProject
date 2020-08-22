@@ -17,3 +17,4 @@ determine the Day of the Week for a specific date|[15 4 2018]|Sunday
 determine the Week Number for a specific date|[15 4 2018]|16
 view history|[]|DISPLAYED HISTORY
 get date from a natural language string|[3000 years earlier]|August 22, 0981
+add dates|[20 1 2020, 21 1 2019]|February 10, 4039
