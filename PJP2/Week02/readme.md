@@ -15,3 +15,6 @@
 ## UML Digrams
 #### Class Diagram for DateTimeCalculator
 ![DateTimeCalculator](DateTimeCalculatorClassDiagram.png?raw=true "DateTimeCalculator Class Diagram")
+
+#### Sequence Diagram for DateTimeCalculator
+![DateTimeCalculator](DateTimeCalculatorSequenceDiagram.png?raw=true "DateTimeCalculator Sequence Diagram")
