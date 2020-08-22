@@ -9,6 +9,7 @@ node {
      def myTestContainer = docker.image('maven:3.6.3-jdk-14')
      myTestContainer.pull()
      myTestContainer.inside {
+       sh 'ls'
        sh 'mvn clean'
        sh 'mvn test'
      }
