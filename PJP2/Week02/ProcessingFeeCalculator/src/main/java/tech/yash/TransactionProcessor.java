@@ -2,12 +2,17 @@ package tech.yash;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.NoSuchElementException;
 
 public class TransactionProcessor {
     HashMap<String, ArrayList<TransactionPOJO>> transactions;
 
     public TransactionProcessor() {
         this.transactions = new HashMap<>();
+    }
+
+    public HashMap<String, ArrayList<TransactionPOJO>> getTransactions() {
+        return transactions;
     }
 
     public void addTransaction(TransactionPOJO temp){
@@ -44,7 +49,7 @@ public class TransactionProcessor {
                 transaction.setProcessingFee("10");
                 return 10;
             }
-            catch (NullPointerException nullPointerException){
+            catch (NoSuchElementException noSuchElementException){
                 if (transaction.getType().toLowerCase().equals("buy")){
                     transaction.setProcessingFee("50");
                     return 50;
