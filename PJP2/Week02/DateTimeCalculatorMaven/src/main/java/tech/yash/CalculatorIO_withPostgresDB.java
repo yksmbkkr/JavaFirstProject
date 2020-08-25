@@ -142,9 +142,32 @@ public class CalculatorIO_withPostgresDB extends CalculatorIO {
 
     public String executeSelectQuery(String queryString) throws SQLException {
         PreparedStatement stmt = this.con.prepareStatement(queryString, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        Calendar calendar = Calendar.getInstance();
+        long startTime = calendar.getTimeInMillis();
+        ResultSet rs = stmt.executeQuery();
+        Calendar calendarEnd = Calendar.getInstance();
+        long endTime = calendarEnd.getTimeInMillis();
+        String lastQueryID = this.getLastQueryID();
+        this.updateExecutionTime(endTime-startTime, lastQueryID);
+        rs.first();
+//        System.out.println(endTime-startTime);
+        System.out.println("Query Took "+(endTime- startTime)+" milliseconds!");
+        return rs.getString(1);
+    }
+
+    public String getLastQueryID() throws SQLException {
+        String queryString = "SELECT uid FROM date_operations ORDER BY uid DESC LIMIT 1;";
+        PreparedStatement stmt = this.con.prepareStatement(queryString, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         ResultSet rs = stmt.executeQuery();
         rs.first();
         return rs.getString(1);
+    }
+
+    public void updateExecutionTime(long time_taken, String uid) throws SQLException {
+        String queryString = String.format("INSERT INTO execution_time (time_taken, uid) VALUES ('%s', %s);", time_taken, uid);
+        PreparedStatement stmt = this.con.prepareStatement(queryString);
+        stmt.executeUpdate();
+        stmt.close();
     }
 
     public void performOperation(int op) throws IOException {
