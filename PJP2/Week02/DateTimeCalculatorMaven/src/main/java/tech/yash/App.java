@@ -1,6 +1,7 @@
 package tech.yash;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Scanner;
  */
 public class App 
 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
         Scanner in = new Scanner(System.in);
 //        System.out.println("Input date 1 in format 'Day Month Year' (e.g. 25 12 2125) > ");
 //        int[] d1 = Stream.of(in.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
@@ -57,9 +58,18 @@ public class App
 //            calculatorIO.performOperation(inputFlag);
 //        }
 
-        CalculatorIO calculatorIO = new CalculatorIO_withPersistentHistory();
+//        CalculatorIO calculatorIO = new CalculatorIO_withPersistentHistory();
+//        int inputFlag = 1;
+//        while (inputFlag>0 && inputFlag <10){
+//            calculatorIO.inputOptions();
+//            System.out.println("\nEnter your choice (Enter 0 to exit) > ");
+//            inputFlag = Integer.parseInt(in.nextLine());
+//            calculatorIO.performOperation(inputFlag);
+//        }
+
+        CalculatorIO_withPostgresDB calculatorIO = new CalculatorIO_withPostgresDB();
         int inputFlag = 1;
-        while (inputFlag>0 && inputFlag <10){
+        while (inputFlag>0 && inputFlag <9){
             calculatorIO.inputOptions();
             System.out.println("\nEnter your choice (Enter 0 to exit) > ");
             inputFlag = Integer.parseInt(in.nextLine());

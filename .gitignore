@@ -7,3 +7,6 @@
 **/.classpath
 **/.settings
 **/.project
+**/psql_functions.py
+**/Credentials.java
+**/Credentials.class

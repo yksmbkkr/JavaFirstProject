@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  postgres:
+    build:
+      context: ${PWD}
+    volumes:
+      - pgdata/:/var/lib/postgresql/data
+    ports:
+      - "9274:5432"
