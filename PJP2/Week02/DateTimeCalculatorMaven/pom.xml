@@ -43,6 +43,11 @@
       <artifactId>postgresql</artifactId>
       <version>42.2.5</version>
     </dependency>
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-entitymanager</artifactId>
+          <version>5.4.20.Final</version>
+      </dependency>
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>

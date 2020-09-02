@@ -67,7 +67,7 @@ public class App
 //            calculatorIO.performOperation(inputFlag);
 //        }
 
-        CalculatorIO_withPostgresDB calculatorIO = new CalculatorIO_withPostgresDB();
+        CalculatorIO_withHibernate calculatorIO = new CalculatorIO_withHibernate();
         int inputFlag = 1;
         while (inputFlag>0 && inputFlag <9){
             calculatorIO.inputOptions();
