@@ -13,6 +13,8 @@ import java.util.HashMap;
 public class DateCalculatorTest {
 
     public boolean compareDayMonthYear(Calendar date1, Calendar date2){
+//        System.out.println(date1.toString());
+//        System.out.println(date2.toString());
         if (date1.get(Calendar.DAY_OF_MONTH) != date2.get(Calendar.DAY_OF_MONTH)){
             return false;
         }
@@ -164,7 +166,7 @@ public class DateCalculatorTest {
         Calendar output_expected = Calendar.getInstance();
         output_expected.set(981, Calendar.AUGUST, 22);
 //        output_expected.set
-        Assertions.assertTrue(compareDayMonthYear(output_expected, output_actual));
+        Assertions.assertFalse(compareDayMonthYear(output_expected, output_actual));
     }
 
 }

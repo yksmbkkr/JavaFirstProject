@@ -23,7 +23,7 @@ public class CalculatorIO_withHibernate extends CalculatorIO{
 //    Connection con;
     private SessionFactory factory;
 
-    CalculatorIO_withHibernate() throws SQLException, FileNotFoundException {
+    public CalculatorIO_withHibernate() throws SQLException, FileNotFoundException {
         this.menuOptions = new ArrayList<>();
 
         this.menuOptions.add("Press 1 to add dates - ");
@@ -190,5 +190,10 @@ public class CalculatorIO_withHibernate extends CalculatorIO{
                 System.out.println("##################################################");
             }
         }
+    }
+
+    @Override
+    public ArrayList<String> getMenuOptions() {
+        return menuOptions;
     }
 }
