@@ -10,7 +10,7 @@
   <body>
     <nav class="navbar is-fixed-top is-info" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" href="./home.html">
+          <a class="navbar-item" href="/home">
             Sapient
           </a>
       
@@ -26,7 +26,7 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-danger">
+                <a class="button is-danger" href="/calculator">
                   <strong>Date Calculator</strong>
                 </a>
               </div>
@@ -74,6 +74,23 @@
                             </div>
                           </div>
                       </div>
+                      <div class="column is-full has-text-centered" id="result-div" style="display: none;">
+                        <h2 class="title">
+                            Results 
+                          </h2>
+                        <div class="card is-transparent has-background-info has-text-white">
+                            <div class="card-content">                          
+                              <div class="content">
+                                <div class="columns">
+                                    <div class="column has-text-white has-text-left">
+                                       <ul id="result-content"></ul>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
                   </div>
               </div>
           </div>
@@ -266,22 +283,24 @@
 
         submitButton(false);
 
-        // $.ajax({
-        //     data: post_json,
-        //     type: 'POST',
-        //     url: '/api/calculate/date-calculator-result',
-        //     success: function(data,status) {
-        //         data = JSON.parse(data);
-        //         $('#result-div').append('<p>Requested operation - '+CALC_OPTIONS[parseInt(input_arr[0])-1] +
-        //             '; with inputs '+input_arr[1]+', '+input_arr[2]+'; Result Recieved - '+data['ret_val']+' ! </p>')
-        //         submitButton(true);
-        //     },
-        //     error: function (data,status) {
-        //         $('#result-div').append('<p>Requested operation - '+CALC_OPTIONS[parseInt(input_arr[0])-1] +
-        //             '; with inputs '+input_arr[1]+', '+input_arr[2]+'; Result Recieved - INTERNAL SERVER ERROR ! </p>')
-        //         submitButton(true);
-        //     }
-        // });
+        $.ajax({
+            data: post_json,
+            type: 'POST',
+            url: '/calculator-result',
+            success: function(data,status) {
+                console.log(data)
+                $('#result-content').append('<li><p>Requested operation - '+CALC_OPTIONS[parseInt(input_arr[0])-1] +
+                    '; with inputs '+input_arr[1]+', '+input_arr[2]+'; Result Recieved - '+data['ret_val']+' ! </p></li>')
+                submitButton(true);
+                $('#result-div').show();
+            },
+            error: function (data,status) {
+                $('#result-content').append('<li><p>Requested operation - '+CALC_OPTIONS[parseInt(input_arr[0])-1] +
+                    '; with inputs '+input_arr[1]+', '+input_arr[2]+'; Result Recieved - INTERNAL SERVER ERROR ! </p></li>')
+                submitButton(true);
+                $('#result-div').show();
+            }
+        });
 
     }
 </script>
