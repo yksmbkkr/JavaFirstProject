@@ -8,9 +8,7 @@ const app = express();
 const Pool = require('pg').Pool; 
 const path = require('path');
   
-const pool = new Pool({ 
-    DB CREDENTIALS
-}); 
+const pool = new Pool(CREDENTIALS); 
 
 const bodyParser = require('body-parser'); 
 app.use(bodyParser.json()) 
